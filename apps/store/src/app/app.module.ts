@@ -12,7 +12,7 @@ import { StoreUiSharedModule } from '@bg-hoard/store/ui-shared';
     RouterModule.forRoot(
       [
         {
-          path: 'store-feature-game-detail',
+          path: 'game/:id',
           loadChildren: () =>
             import('@bg-hoard/store/feature-game-detail').then(
               (module) => module.StoreFeatureGameDetailModule
