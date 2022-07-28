@@ -9,12 +9,23 @@ import { StoreUiSharedModule } from '@bg-hoard/store/ui-shared';
 @NgModule({
   imports: [
     BrowserModule,
-    RouterModule.forRoot([], { initialNavigation: 'enabledBlocking' }),
-    MatCardModule, 
+    RouterModule.forRoot(
+      [
+        {
+          path: 'store-feature-game-detail',
+          loadChildren: () =>
+            import('@bg-hoard/store/feature-game-detail').then(
+              (module) => module.StoreFeatureGameDetailModule
+            ),
+        },
+      ],
+      { initialNavigation: 'enabledBlocking' }
+    ),
+    MatCardModule,
     StoreUiSharedModule,
   ],
   providers: [],
-  declarations: [AppComponent,],
+  declarations: [AppComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
